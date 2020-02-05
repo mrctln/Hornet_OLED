@@ -41,10 +41,20 @@ while True:
     x=int(getCpuTemperature())
     k=(int((100/int(mem_G[:5]))*(int(mem_F[8:]))))
     i=100-k
+    mem=str(os.popen('systemctl status hornet').readlines())
+    index=mem.index("Active")
+    status=mem[index+8:index+14]
+    if (status == "active"):
+            node_status="Online"
+    else:
+            node_status="Offline"
+
+
     if x!=y or i!=j:
         oled.cls()
-        draw.text((30, 20), "CPU: " + str(x)+"°C", font=DejaVuSans30,fill=1)
-        draw.text((30, 40), "RAM: " + str(i) + "%", font=DejaVuSans30,fill=1)
+        draw.text((30, 10), "CPU: " + str(x)+"°C", font=DejaVuSans30,fill=1)
+        draw.text((30, 28), "RAM: " + str(i) + "%", font=DejaVuSans30,fill=1)
+        draw.text((30, 46), "Status: " + p, font=DejaVuSans30,fill=1)
 # Ausgaben auf Display schreiben
         oled.display()
         time.sleep(1)
