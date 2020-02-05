@@ -1,28 +1,28 @@
 #!/usr/bin/env python
 # coding=utf-8
-# Bibliotheken importieren
+
 import os
 from lib_oled96 import ssd1306
 from smbus import SMBus
 from PIL import ImageFont
 import time
 
-#Definitionen
+
 def getCpuTemperature():
  tempFile = open( "/sys/class/thermal/thermal_zone0/temp" )
  cpu_temp = tempFile.read()
  tempFile.close()
  return float(cpu_temp)/1000
-# Display einrichten
+
 i2cbus = SMBus(1)            # 0 = Raspberry Pi 1, 1 = Raspberry Pi > 1
 oled = ssd1306(i2cbus)
-# Ein paar Abkürzungen, um den Code zu entschlacken
 draw = oled.canvas
 DejaVuSans30 = ImageFont.truetype('FreeSans.ttf', 15) #DejaVuSans #FreeSans
-# Display zum Start löschen
+
 oled.cls()
 oled.display()
 y=0
+j=0
 
 while True:
     
