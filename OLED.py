@@ -17,7 +17,7 @@ def getCpuTemperature():
 i2cbus = SMBus(1)            # 0 = Raspberry Pi 1, 1 = Raspberry Pi > 1
 oled = ssd1306(i2cbus)
 draw = oled.canvas
-DejaVuSans30 = ImageFont.truetype('FreeSans.ttf', 15) #DejaVuSans #FreeSans
+DejaVuSans30 = ImageFont.truetype('FreeSans.ttf', 15)
 
 oled.cls()
 oled.display()
@@ -26,7 +26,7 @@ j=0
 
 while True:
     
-    #RAM-Auslastung
+
     mem=str(os.popen('free -t -m').readlines())
     T_ind=mem.index('T')
     mem_G=mem[T_ind+14:-4]
@@ -55,7 +55,7 @@ while True:
         draw.text((30, 10), "CPU: " + str(x)+"°C", font=DejaVuSans30,fill=1)
         draw.text((30, 28), "RAM: " + str(i) + "%", font=DejaVuSans30,fill=1)
         draw.text((30, 46), "Status: " + p, font=DejaVuSans30,fill=1)
-# Ausgaben auf Display schreiben
+
         oled.display()
         time.sleep(1)
         y=x
