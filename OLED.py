@@ -37,6 +37,9 @@ oled.cls()
 oled.display()
 y=0
 j=0
+CPU_temp_before=0
+RAM_usage_before
+time.sleep(120)
 
 while True:
  RAM_usage=get_RAM_usage()
