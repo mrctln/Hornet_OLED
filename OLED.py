@@ -7,6 +7,9 @@ from smbus import SMBus
 from PIL import ImageFont
 import time
 
+sleep_time=5
+node_type="hornet"  #hornet or shimmer
+
 
 def getCpuTemperature():
  tempFile = open( "/sys/class/thermal/thermal_zone0/temp" )
@@ -44,7 +47,7 @@ time.sleep(60)
 while True:
  RAM_usage=get_RAM_usage()
  CPU_temp=int(getCpuTemperature())
- bash_status=str(os.popen('systemctl status hornet').readlines())
+ bash_status=str(os.popen('systemctl status '+ node_type).readlines())
  index=bash_status.index("Active")
  status=bash_status[index+8:index+14]
  if (status == "active"):
@@ -60,8 +63,8 @@ while True:
      draw.text((30, 46), "Status: " + node_status, font=DejaVuSans30,fill=1)
 
      oled.display()
-     time.sleep(1)
+     time.sleep(sleep_time)
      CPU_temp_before=CPU_temp
      RAM_usage_before=RAM_usage
  else:
-     time.sleep(1)
+     time.sleep(sleep_time)
