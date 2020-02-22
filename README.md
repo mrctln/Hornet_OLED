@@ -26,6 +26,7 @@ and then
 >sudo nano OLED.py
 
 Change the 'node_type' variable to 'hornet' or 'shimmer'.
+
 By changing the 'sleep_time' variable you can change the updating interval of the monitor in seconds.
 
 To automatically start the script after rebooting:
