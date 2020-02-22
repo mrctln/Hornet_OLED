@@ -10,6 +10,7 @@ Wiring diagram can be found here(https://indibit.de/wp-content/uploads/2018/04/r
 Navigate to your home directory by:
 
 >cd /
+
 >cd home
 
 Then clone the github repository by:
