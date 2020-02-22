@@ -9,30 +9,30 @@ Wiring diagram can be found here(https://indibit.de/wp-content/uploads/2018/04/r
 
 Navigate to your home directory by:
 
-cd /
-cd home
+>cd /
+>cd home
 
 Then clone the github repository by:
 
-git clone https://github.com/mrctln/Hornet_OLED
+>git clone https://github.com/mrctln/Hornet_OLED
 
 To choose your node type, go to
 
-cd Hornet_OLED
+>cd Hornet_OLED
 
 and then 
 
-sudo nano OLED.py
+>sudo nano OLED.py
 
 Change the 'node_type' variable to 'hornet' or 'shimmer'.
 By changing the 'sleep_time' variable you can change the updating interval of the monitor in seconds.
 
 To automatically start the script after rebooting:
 
-crontab -e
+>crontab -e
 
 and copy
 
-@reboot cd/home/Hornet_OLED && sudo python OLED.py
+>@reboot cd/home/Hornet_OLED && sudo python OLED.py
 
 at the end of the file. Save with CTRL+O and Enter and close it by Ctrl+X.
