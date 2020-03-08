@@ -15,7 +15,7 @@ Navigate to your home directory by:
 
 Then clone the github repository by:
 
->git clone https://github.com/mrctln/Hornet_OLED
+>sudo git clone https://github.com/mrctln/Hornet_OLED
 
 To choose your node type, go to
 
